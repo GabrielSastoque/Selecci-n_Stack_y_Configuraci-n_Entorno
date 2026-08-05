@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Personal de #{nombre}</title>
+    <link rel="stylesheet" href="{% static 'tu_app/styles.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>卐#{nombre}卐</h1>
+        <p>Desarrollador en proceso | Apasionado por los peptidos</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#gustos">Mis Gustos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="gustos">
+            <h2>Cosas que me gustan</h2>
+
+            <article>
+                <h3>Mis pasatiempos favoritos</h3>
+                ul
+                    each c in cesar 
+                       li #{c}
+            </article>
+        </section>
+
+        <aside>
+            <h3>Dato curioso</h3>
+            <p>Este sitio fue estructurado usando HTML5 semántico e integrado dentro del framework Django.</p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gabriel Arturo - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
