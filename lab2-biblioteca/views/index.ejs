@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<section class="catalog-section">
+  <h2>Catálogo de Libros</h2>
+  <div class="card-grid">
+    <% libros.forEach(function(libro) { %>
+      <article class="card">
+        <h3><%= libro.titulo %></h3>
+        <p><strong>Páginas:</strong> <%= libro.paginas %></p>
+        <p><strong>Editorial:</strong> <%= libro.editorial.nombre %></p>
+        <a href="/libro/<%= libro.id %>" class="btn">Ver detalle</a>
+      </article>
+    <% }); %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
