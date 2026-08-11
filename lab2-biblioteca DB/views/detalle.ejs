@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<section class="detail-section">
+  <article class="detail-card">
+    <h2><%= libro.titulo %></h2>
+    <p class="summary"><%= libro.resumen %></p>
+    
+    <div class="info-group">
+      <h3>Estado de Préstamo</h3>
+      <p><strong>Ejemplares en inventario:</strong> <%= libro.disponibles %></p>
+      
+      <% if (libro.disponibles > 0) { %>
+        <div class="badge badge-success">Disponible para préstamo inmediato</div>
+      <% } else { %>
+        <div class="badge badge-danger">(Agotado) => No hay copias disponibles</div>
+      <% } %>
+    </div>
+
+    <div class="info-group">
+      <h3>Datos de la Editorial</h3>
+      <p><strong>Nombre:</strong> <%= libro.Editorial.nombre %></p>
+      <p><strong>Contacto:</strong> <%= libro.Editorial.contacto %></p>
+    </div>
+
+    <a href="/" class="btn btn-secondary">← Volver al catálogo</a>
+  </article>
+</section>
+
+<%- include('partials/footer') %>
