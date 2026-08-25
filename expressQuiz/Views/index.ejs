@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Muebles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 20px;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .disponible {
+      color: green;
+      font-weight: bold;
+    }
+    .no-disponible {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Catálogo de Muebles</h1>
+
+  <% if (muebles && muebles.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% muebles.forEach(mueble => { %>
+          <tr>
+            <td><%= mueble._id %></td>
+            <td><%= mueble.nombre %></td>
+            <td><%= mueble.categoria %></td>
+            <td>$<%= mueble.precio %></td>
+            <td>
+              <% if (mueble.disponible) { %>
+                <span class="disponible">Disponible</span>
+              <% } else { %>
+                <span class="no-disponible">Agotado</span>
+              <% } %>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No hay muebles registrados en la base de datos.</p>
+  <% } %>
+
+</body>
+</html>
