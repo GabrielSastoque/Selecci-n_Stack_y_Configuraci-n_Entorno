@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Parcial - Receta</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f6f8; color: #333; }
+        header { background: #2c3e50; color: white; text-align: center; padding: 2rem 1rem; }
+        main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        section { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+        article { border-bottom: 1px solid #eee; padding: 0.8rem 0; display: flex; justify-content: space-between; }
+        article:last-child { border-bottom: none; }
+        footer { text-align: center; padding: 1.5rem; background: #e2e8f0; font-size: 0.9rem; color: #666; }
+        .tag { background: #e74c3c; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><%= receta ? receta.nombre : 'Cargando Receta...' %></h1>
+        <% if (receta && receta.origen) { %>
+            <p>Origen: <strong><%= receta.origen.region %></strong>, <%= receta.origen.pais %></p>
+        <% } %>
+    </header>
+
+    <main>
+        <% if (receta) { %>
+            <section>
+                <h2>Información General</h2>
+                <p>Tiempo de preparación: <span class="tag"><%= receta.tiempoPreparacion %></span></p>
+            </section>
+
+            <section>
+                <h2>Ingredientes</h2>
+                <% if (receta.ingredientes && receta.ingredientes.length > 0) { %>
+                    <% receta.ingredientes.forEach(ing => { %>
+                        <article>
+                            <span><strong><%= ing.nombre %></strong></span>
+                            <span><%= ing.cantidad %> <%= ing.unidad %></span>
+                        </article>
+                    <% }); %>
+                <% } else { %>
+                    <p>No se encontraron ingredientes registrados.</p>
+                <% } %>
+            </section>
+        <% } else { %>
+            <section><p>No se encontró ninguna receta en la base de datos.</p></section>
+        <% } %>
+    </main>
+
+    <footer>
+        <p>Desarrollo de Aplicaciones Web — Examen Parcial Practico</p>
+    </footer>
+
+</body>
+</html>

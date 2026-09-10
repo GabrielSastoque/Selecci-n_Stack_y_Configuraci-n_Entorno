@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const asistenciaSchema = new mongoose.Schema({
-  nombre: { type: String, required: true },
-  idUniversidad: { type: String, required: true },
-  hobbie: { type: String, required: true } // Campo adicional propio
-});
+    nombre: String,
+    idUniversidad: String,
+    hobby: String
+}, { collection: 'asistencias' }); // Apunta explícitamente a la colección "asistencias"
 
-// Forzamos el nombre explícito de la colección 'asistencias'
-module.exports = mongoose.model('Asistencia', asistenciaSchema, 'asistencias');
+module.exports = mongoose.model('Asistencia', asistenciaSchema);
