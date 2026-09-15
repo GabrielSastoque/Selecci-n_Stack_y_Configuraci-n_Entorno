@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Charlas</title>
+</head>
+<body>
+    <h1>Charlas DevConf</h1>
+    <ul>
+        <% charlas.forEach(charla => { %>
+            <li><strong><%= charla.titulo %></strong> - <%= charla.hora %> (Cupos: <%= charla.cupos %>)</li>
+        <% }) %>
+    </ul>
+</body>
+</html>

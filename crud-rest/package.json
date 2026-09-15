@@ -1,0 +1,14 @@
+{
+  "name": "crud-rest",
+  "version": "1.0.0",
+  "description": "API REST de Charlas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.0"
+  }
+}
