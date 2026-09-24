@@ -1,6 +1,7 @@
 const express = require('express');
+const path = require('path');
 const conectarDB = require('./config/db');
-const charlasRouter = require('./routes/charlas');
+const contenidosRouter = require('./routes/contenido');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,19 +12,15 @@ conectarDB();
 // Middleware para JSON
 app.use(express.json());
 
-// Configurar motor de vistas
-app.set('view engine', 'ejs');
-app.set('views', './views');
+// Rutas principales de la API
+app.use('/api/contenidos', contenidosRouter);
 
-// Ruta raíz renderizando HTML
-app.get('/', async (req, res) => {
-    const Charla = require('./models/charla');
-    const charlas = await Charla.find();
-    res.render('index', { charlas }); // Renderiza views/index.ejs
+// Servir la aplicación React compilada.
+const frontendPath = path.join(__dirname, 'dist');
+app.use(express.static(frontendPath));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'));
 });
-
-// 2. Rutas principales de la API
-app.use('/api/charlas', charlasRouter);
 
 // Arrancar servidor
 app.listen(PORT, () => {

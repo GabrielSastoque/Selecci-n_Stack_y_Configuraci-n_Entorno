@@ -2,13 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Charlas</title>
+    <title>Lista de Contenidos</title>
 </head>
 <body>
-    <h1>Charlas DevConf</h1>
+    <h1>Películas y series</h1>
     <ul>
-        <% charlas.forEach(charla => { %>
-            <li><strong><%= charla.titulo %></strong> - <%= charla.hora %> (Cupos: <%= charla.cupos %>)</li>
+        <% contenidos.forEach(contenido => { %>
+            <li>
+                <strong><%= contenido.titulo %></strong>
+                - <%= contenido.genero %>
+                (<%= contenido.anioEstreno %>)
+            </li>
         <% }) %>
     </ul>
 </body>

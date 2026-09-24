@@ -1,14 +1,22 @@
 {
   "name": "crud-rest",
   "version": "1.0.0",
-  "description": "API REST de Charlas",
+  "description": "API REST de contenidos audiovisuales",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "ejs": "^6.0.1",
     "express": "^4.19.2",
-    "mongoose": "^8.3.0"
+    "mongoose": "^8.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0"
   }
 }
